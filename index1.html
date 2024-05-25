@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="./style1.css">
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.6/flowbite.min.js"></script>
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet">
+
+
+
+      <script src="https://cdn.jsdelivr.net/npm/twilio@3.63.0/dist/twilio.min.js"></script>
+
+
+    <script>
+        tailwind.config = {
+            theme: {
+                colors: {
+                    'white': '#FFFFFF',
+                    'backgroundWhite': '#ebebed',
+                    'darkblack': '#000000',
+                    'black': '#1d1d1f',
+                },
+            },
+        }
+
+    </script>
+</head>
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+
+
+    body {
+        overflow-x: hidden;
+    }
+</style>
+
+<body class="bg-black overflow-hidden flex justify-center items-center h-screen p-5">
+
+
+    <form method="post" action="" name="form"
+        class="bg-backgroundWhite w-full max-h-full mx-auto rounded-[30px] p-4 font-medium">
+        <div>
+            
+            <button type="button" id="save" class=" text-black h-10 mt-1 rounded-[12px]  font-bold"> <a href="./index.html"> <i class="arrow left"></i>Back</a> </button>
+            <br>
+            <br>
+            <div class="subtitle font-extrabold">Kala Tex</div>
+            <div class="title ">Updates</div>
+            <p class="w-full border-[1px] "></p>
+            <br>
+            <div class=" pb-3 text-[15px]">
+                <div class="block">
+                    <p class="px-1 font-bold pb-2">Kandi Machine</p>
+                    <div class="flex gap-[13px]">
+                        <input type="checkbox" name="LS" id="LS" value="LS">
+                        <label for="LS"> LS</label><br>
+                        <input type="checkbox" name="RG" id="RG" value="RG">
+                        <label for="RG"> RG</label><br>
+                        <input type="checkbox" name="SS" id="SS" value="SS">
+                        <label for="SS"> SS</label><br>
+                    </div>
+                    <p class="px-1">Reason :</p>
+                    <select id="reasone" class="reasone bg-white rounded-lg" type="text" placeholder="Reason" name="Reason">
+                        <option value="-">-</option>
+                        <option value="Karigar Absent">Karigar Absent</option>
+                        <option value="Karigiar Bimar">Karigiar Bimar</option>
+                      </select>
+                </div>
+                <br>
+                <div class="looms block">
+                    <p class="px-1 font-bold">Looms</p>
+                    <div class="looms1 flex gap-[13px] py-2">
+                        <input type="checkbox" name="1-16" id="1-16" value="1-16">
+                        <label for="1-16"> 1-16</label><br>
+                        <input type="checkbox" name="17-32" id="17-32" value="17-32">
+                        <label for="17-32"> 17-32</label><br>
+                        <input type="checkbox" name="33-48" id="33-48" value="33-48">
+                        <label for="33-48"> 33-48</label><br>
+                    </div>
+                    <div class="looms1 flex gap-[13px] py-2">
+                        <input type="checkbox" name="49-64" id="49-64" value="49-64">
+                        <label for="49-64"> 49-64</label><br>
+                        <input type="checkbox" name="65-80" id="65-80" value="65-80">
+                        <label for="65-80"> 65-80</label><br>
+                        <input type="checkbox" name="81-96" id="81-96" value="81-96">
+                        <label for="81-96"> 81-96</label><br>
+                    </div>
+                    <div class="looms1 flex gap-[13px] py-2">
+                        <input type="checkbox" name="97-112" id="97-112" value="97-112">
+                        <label for="97-112"> 97-112</label><br>
+                        <input type="checkbox" name="113-128" id="113-128" value="113-128">
+                        <label for="113-128"> 113-128</label><br>
+                        <input type="checkbox" name="129-144" id="129-144" value="129-144">
+                        <label for="129-144"> 129-144</label><br>
+                    </div>
+                    <div class="looms1 flex gap-[13px] py-2 ">
+                        <input type="checkbox" name="145-160" id="145-160" value="145-160">
+                        <label for="145-160"> 145-160</label><br>
+                        <input type="checkbox" name="161-176" id="161-176" value="161-176">
+                        <label for="161-176"> 161-176</label><br>
+                        <input type="checkbox" name="177-192" id="177-192" value="177-192">
+                        <label for="177-192"> 177-192</label><br>
+                    </div>
+                    <br>
+                    <p class="px-1">Reason :</p>
+                    <select id="reasone1" class="reasone1 bg-white rounded-lg" type="text" placeholder="Reason" name="Reason">
+                        <option value="-">-</option>
+                        <option value="Kandi Problem">Kandi Problem</option>
+                        <option value="Karigar Absent">Karigar Absent</option>
+                        <option value="Karigiar Bimar">Karigiar Bimar</option>
+                      </select>
+                </div>
+                <br>
+                <p class="px-1 font-bold">Passariya :</p>
+                <input type="number" pattern="[0-9]*" id="reasone1" class="py-2 rounded-lg">
+                <br>
+            </div>
+
+            <button type="button" id="save" class="w-full bg-black text-white h-10 mt-1 rounded-[12px]"
+                onClick="operate()">Send</button>
+        </div>
+
+    </form>
+
+
+    <script src="./script1.js">
+        AOS.init();
+    </script>
+</body>
+
+</html>
