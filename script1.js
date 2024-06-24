@@ -123,7 +123,8 @@ function sendWhatsAppMessage() {
 // var phone = "7202914552";
     var title = constructTitleKandiMachine();
     var title1 = constructTitleLooms();
-    var message = encodeURIComponent("Date: " + formattedDate + "\nTime: " + formattedTime + "\n\n" + title + "\nReason :" + reasone + "\n\n" + title1 + "\nReason :" + reasone1);
+    var passaria = document.getElementById("passaria").value;
+    var message = encodeURIComponent("Date: " + formattedDate + "\nTime: " + formattedTime + "\n\n" + title + "\nReason :" + reasone + "\n\n" + title1 + "\nReason :" + reasone1+ "\n\nPassaria :" + " *"+passaria+"*");
     var url = "https://wa.me/" + phone + "/?text=" + message;
 
     
