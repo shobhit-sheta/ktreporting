@@ -1,35 +1,12 @@
 // const scriptURL = 'https://script.google.com/macros/s/AKfycbxisfXzsyjAc-3FrJ674ZQy3CJa1Kvq8b6xJViboTrjhLYSj9EBQM7z2ljzLcUSz0h5QQ/exec'
 
 let api =
-  "https://script.google.com/macros/s/AKfycbzBtJAuj7OkpU6a_em1QB9yucXBC7axVnGDX0NW3GP_VKVN9up3kke0tF5O3jNZ37hW/exec";
+  "https://script.google.com/macros/s/AKfycbxpIz7uajmzyk7X-TqPZ-LlYhtpRQPCTtkWc0UOKskioAHKZqRd7Nw85RbchySJvh3EHA/exec";
 let form = document.querySelector("form");
 let save = document.querySelector("#save");
-function saveData() {
-    save.textContent = "Sending...";
-    let obj = {
-      title: form[0].value,
-      name: form[1].value,
-      ph: form[2].value,
-      company: form[3].value,
-      tcompany: form[4].value,
-    };
-    fetch(api, {
-      method: "POST",
-      body: JSON.stringify(obj),
-    })
-      .then((res) => res.text())
-      .then((data) => {
-        alert(data);
-        // sendPDF(); // <- Here's the call to sendPDF()
-        form.reset();
-        save.textContent = "Send";
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-        alert('Error occurred. Please try again later.');
-        save.textContent = "Send";
-      });
-  }
+// let CheckedKandi = getCheckedKandi();
+// let UncheckedKandi = getUncheckedKandi();
+// let passaria = document.getElementById("passaria").value;
 
   function constructTitleLooms() {
     var title = "Looms";
@@ -120,7 +97,7 @@ function sendWhatsAppMessage() {
     var groupName = "Reporting"; // Replace with your WhatsApp group name
     var phone = encodeURIComponent("Reporting");
 
-// var phone = "7202914552";
+var phone = "7202914552";
     var title = constructTitleKandiMachine();
     var title1 = constructTitleLooms();
     var passaria = document.getElementById("passaria").value;
@@ -133,7 +110,115 @@ function sendWhatsAppMessage() {
 }
 
 
+// Function to get checked checkboxes within the .kandi block
+function getCheckedKandi() {
+  const checked = [];
+  const checkedBoxes = document.querySelectorAll('.kandi input[type="checkbox"]:checked');
+  
+  checkedBoxes.forEach(checkbox => {
+    checked.push(checkbox.value);
+  });
+
+  return checked;
+}
+
+// Function to get unchecked checkboxes within the .kandi block
+function getUncheckedKandi() {
+  const unchecked = [];
+  const uncheckedBoxes = document.querySelectorAll('.kandi input[type="checkbox"]:not(:checked)');
+  
+  uncheckedBoxes.forEach(checkbox => {
+    unchecked.push(checkbox.value);
+  });
+
+  return unchecked;
+}
+
+// Function to get checked checkboxes within the .looms block
+function getCheckedLooms() {
+  const checked = [];
+  const checkedBoxes = document.querySelectorAll('.looms input[type="checkbox"]:checked');
+  
+  checkedBoxes.forEach(checkbox => {
+    checked.push(checkbox.value);
+  });
+
+  return checked;
+}
+
+// Function to get unchecked checkboxes within the .looms block
+function getUncheckedLooms() {
+  const unchecked = [];
+  const uncheckedBoxes = document.querySelectorAll('.looms input[type="checkbox"]:not(:checked)');
+  
+  uncheckedBoxes.forEach(checkbox => {
+    unchecked.push(checkbox.value);
+  });
+
+  return unchecked;
+}
+
+function saveData() {
+
+  const date = new Date();  // Get today's date and time
+const formattedDate = date.toLocaleString(); // Format the date and time as a string
+     
+  const CheckedKandi = getCheckedKandi();
+  const UncheckedKandi = getUncheckedKandi();
+
+  // Convert arrays to comma-separated strings
+  const checkedKandiText = CheckedKandi.join(', ');
+  const uncheckedKandiText = UncheckedKandi.join(', ');
+
+  const reasone = document.getElementById("reasone").value;
+  
+  const CheckedLooms = getCheckedLooms();
+  const UncheckedLooms = getUncheckedLooms();
+  
+  // Convert arrays to comma-separated strings
+  const checkedLoomsText = CheckedLooms.join(', ');
+  const uncheckedLoomsText = UncheckedLooms.join(', ');
+  
+  const reasone1 = document.getElementById("reasone1").value;
+  
+  const passaria = document.getElementById("passaria").value;
+  
+  // Construct the data object
+  let obj = {
+    sheet: "Looms",
+    date: formattedDate,
+    kandi: uncheckedKandiText,
+    bandhKandi: checkedKandiText,
+    reasone: reasone,
+    looms: uncheckedLoomsText,
+    bandhLooms: checkedLoomsText,
+    reasone1: reasone1,
+    passaria: passaria,
+
+
+  };
+  save.textContent = "Sending...";
+  fetch(api, {
+    method: "POST",
+    body: JSON.stringify(obj),
+  })
+    .then((res) => res.text())
+    .then((data) => {
+      alert(data);
+      // sendPDF(); // <- Here's the call to sendPDF()
+      form.reset();
+      save.textContent = "Send";
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+      alert('Error occurred. Please try again later.');
+      save.textContent = "Send";
+    });
+}
+
+
 
 function operate(){
+  saveData();
     sendWhatsAppMessage();
 }

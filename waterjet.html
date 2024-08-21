@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="./style1.css">
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.6/flowbite.min.js"></script>
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet">
+
+
+
+      <script src="https://cdn.jsdelivr.net/npm/twilio@3.63.0/dist/twilio.min.js"></script>
+
+
+    <script>
+        tailwind.config = {
+            theme: {
+                colors: {
+                    'white': '#FFFFFF',
+                    'backgroundWhite': '#ebebed',
+                    'darkblack': '#000000',
+                    'black': '#1d1d1f',
+                },
+            },
+        }
+
+    </script>
+</head>
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+
+
+    body {
+        overflow-x: hidden;
+    }
+</style>
+
+<body class="bg-black flex justify-center items-center h-full p-5 overflow-x-hidden">
+
+
+    <form method="post" action="" name="form"
+        class="bg-backgroundWhite w-full max-h-full mx-auto rounded-[30px] p-4 font-medium">
+        <div>
+            
+            <button type="button" class=" text-black h-10 mt-1 rounded-[12px]  font-bold"> <a href="./index.html"> <i class="arrow left"></i>Back</a> </button>
+            <br>
+            <br>
+                <img src="./Assets/kalaTex1.png" alt="" class="mx-auto w-[50%]">
+<br>
+            <div class="title text-center">Waterjet Machine</div>
+            <p class="w-full border-[1px] "></p>
+            <br>
+            <div class=" pb-3 text-[15px]">
+                <div class="Waterjet block">
+                    <p class="px-1 font-bold pb-2">Bandh Waterjet Machine</p>
+                    <div class="flex gap-[13px]">
+                        <input type="checkbox" name="1-6" id="1-6" value="1-6"  class="w-5 h-5">
+                        <label for="1-6"> 1-6</label><br>
+                        <input type="checkbox" name="7-13" id="7-13" value="7-13"  class="w-5 h-5">
+                        <label for="7-13"> 7-13</label><br>
+                        <input type="checkbox" name="29-33" id="29-33" value="29-33"  class="w-5 h-5">
+                        <label for="29-33"> 29-33</label><br>
+                    </div>
+                        <br>
+                        <div class="flex gap-[13px]">
+                            <input type="checkbox" name="34-38" id="34-38" value="34-38"  class="w-5 h-5">
+                            <label for="34-38"> 34-38</label><br>
+                            <input type="checkbox" name="39-44" id="39-44" value="39-44"  class="w-5 h-5">
+                            <label for="39-44"> 39-44</label><br>
+                            <input type="checkbox" name="45-50" id="45-50" value="45-50"  class="w-5 h-5">
+                            <label for="45-50"> 45-50</label><br>
+                        </div>
+                    </div>
+                    <br>
+                    <p class="px-1">Reason :</p>
+                    <select id="reasone" class="reasone bg-white rounded-lg" type="text" placeholder="Reason" name="Reason">
+                        <option value="-">-</option>
+                        <option value="Karigar Absent">Karigar Absent</option>
+                        <option value="Karigiar Bimar">Karigiar Bimar</option>
+                      </select>
+                <br>
+                <p class="px-1 font-bold">Passariya :</p>
+                <input type="number" pattern="[0-9]*" id="passaria" class="py-2 rounded-lg">
+                <br>
+            </div>
+
+            <button type="button" id="save" class="w-full bg-black text-white h-10 mt-1 rounded-[12px]"
+                onClick="operate()">Send</button>
+        </div>
+
+    </form>
+
+
+    <script src="./Waterjet.js">
+        AOS.init();
+    </script>
+</body>
+
+</html>

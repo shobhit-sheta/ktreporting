@@ -50,14 +50,14 @@
     }
 </style>
 
-<body class="bg-black flex justify-center items-center h-screen p-5">
+<body class="bg-black flex justify-center items-center h-full p-5 overflow-x-hidden">
 
 
     <form method="post" action="" name="form"
-        class="bg-backgroundWhite overflow-hidden w-full max-h-full mx-auto rounded-[30px] p-4 font-medium">
+        class="bg-backgroundWhite w-full max-h-full mx-auto rounded-[30px] p-4 font-medium">
         <div>
             
-            <button type="button" id="save" class=" text-black h-10 mt-1 rounded-[12px]  font-bold"> <a href="./index.html"> <i class="arrow left"></i>Back</a> </button>
+            <button type="button" class=" text-black h-10 mt-1 rounded-[12px]  font-bold"> <a href="./index.html"> <i class="arrow left"></i>Back</a> </button>
             <br>
             <br>
                 <img src="./Assets/kalaTex1.png" alt="" class="mx-auto w-[50%]">
@@ -66,8 +66,8 @@
             <p class="w-full border-[1px] "></p>
             <br>
             <div class=" pb-3 text-[15px]">
-                <div class="block">
-                    <p class="px-1 font-bold pb-2">Kandi Machine</p>
+                <div class="kandi block">
+                    <p class="px-1 font-bold pb-2">Bandh Kandi Machine</p>
                     <div class="flex gap-[13px]">
                         <input type="checkbox" name="LS" id="LS" value="LS"  class="w-5 h-5">
                         <label for="LS"> LS</label><br>
@@ -76,6 +76,7 @@
                         <input type="checkbox" name="SS" id="SS" value="SS"  class="w-5 h-5">
                         <label for="SS"> SS</label><br>
                     </div>
+                    <br>
                     <p class="px-1">Reason :</p>
                     <select id="reasone" class="reasone bg-white rounded-lg" type="text" placeholder="Reason" name="Reason">
                         <option value="-">-</option>
@@ -85,7 +86,7 @@
                 </div>
                 <br>
                 <div class="looms block">
-                    <p class="px-1 font-bold">Looms</p>
+                    <p class="px-1 font-bold">Bandh Looms</p>
                     <div class="looms1 flex gap-[13px] py-2">
                         <input type="checkbox" name="1-16" id="1-16" value="1-16"  class="w-5 h-5">
                         <label for="1-16"> 1-16</label><br>
@@ -140,7 +141,7 @@
     </form>
 
 
-    <script src="./script1.js">
+    <script src="./Looms.js">
         AOS.init();
     </script>
 </body>
