@@ -1,7 +1,7 @@
 // const scriptURL = 'https://script.google.com/macros/s/AKfycbxisfXzsyjAc-3FrJ674ZQy3CJa1Kvq8b6xJViboTrjhLYSj9EBQM7z2ljzLcUSz0h5QQ/exec'
 
 let api =
-  "https://script.google.com/macros/s/AKfycbxpIz7uajmzyk7X-TqPZ-LlYhtpRQPCTtkWc0UOKskioAHKZqRd7Nw85RbchySJvh3EHA/exec";
+  "https://script.google.com/macros/s/AKfycbzYP-GDkwccZGVd87q3r4y4al6gx62NvQ_ELgiujhwB/dev";
 let form = document.querySelector("form");
 let save = document.querySelector("#save");
 // let CheckedKandi = getCheckedKandi();
