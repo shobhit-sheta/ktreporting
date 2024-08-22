@@ -7,7 +7,7 @@
     <title>KT</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Link CSS -->
-    <link rel="stylesheet" href="./looms.css">
+    <link rel="stylesheet" href="./style2.css">
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,96 +45,77 @@
     }
 
 
+    body {
+        overflow-x: hidden;
+    }
 </style>
 
-<body class="bg-black  justify-center items-center h-full p-5">
-    <div id="accessDenied" class="accessDenied bg-black" style="font-size: large;"></div>
+<body class="bg-black overflow-hidden flex justify-center items-center h-screen p-5">
 
-    <div id="login" style="display: none;">
-        
-        <div id="login1">
-            <div class="flex gap-3">
 
-                <button type="button" class=" text-white h-10 mt-1 rounded-[12px]  font-bold"> <a href="./index.html"> <i
-                    class="arrow1 left"></i></a> </button>
-                    
-                    <h1 style="color: #f5f5f7; font-size: 28px;" ><b>LOGIN</b>
-                        <br><p style="font-size: 16px;">Looms & Kandi</p>
-                    </h1>
-                </div>
-          <input id="username" type="text" placeholder="Username">
-          <br>
-          <input id="password" type="password" placeholder="Password">
-          <br>
-          <button id="submit" onclick="login()">Submit</button>
-        </div>
-      </div>
-
-    <div id="accessAllowed" style="display: none;">
-        <form method="post" action="" name="form"
-        class="bg-backgroundWhite w-full max-h-full mx-auto rounded-[30px] p-4 font-medium">
+    <form method="post" action="" name="form"
+        class="bg-backgroundWhite overflow-scroll w-full max-h-full mx-auto rounded-[30px] p-4 font-medium">
         <div>
             
-            <button type="button" class=" text-black h-10 mt-1 rounded-[12px]  font-bold"> <a href="./index.html"> <i class="arrow left"></i>Back</a> </button>
+            <button type="button" id="save" class=" text-black h-10 mt-1 rounded-[12px]  font-bold"> <a href="./index.html"> <i class="arrow left"></i>Back</a> </button>
             <br>
             <br>
-            <img src="./Assets/kalaTex1.png" alt="" class="mx-auto w-[50%]">
-            <br>
-            <div class="title text-center">Looms & Kandi Machine</div>
+                <img src="./Assets/kalaTex1.png" alt="" class="mx-auto w-[50%]">
+<br>
+            <div class="title text-center">TFO & Warping</div>
             <p class="w-full border-[1px] "></p>
             <br>
             <div class=" pb-3 text-[15px]">
-                <div class="kandi block">
-                    <p class="px-1 font-bold pb-2">Bandh Kandi Machine</p>
+                <div class="block">
+                    <p class="px-1 font-bold pb-2">TFO</p>
                     <div class="flex gap-[13px]">
-                        <input type="checkbox" name="LS" id="LS" value="LS"  class="w-5 h-5">
+                        <input type="checkbox" name="LS" id="LS" value="LS" class="w-5 h-5">
                         <label for="LS"> LS</label><br>
-                        <input type="checkbox" name="RG" id="RG" value="RG"  class="w-5 h-5">
+                        <input type="checkbox" name="RG" id="RG" value="RG" class="w-5 h-5">
                         <label for="RG"> RG</label><br>
-                        <input type="checkbox" name="SS" id="SS" value="SS"  class="w-5 h-5">
+                        <input type="checkbox" name="SS" id="SS" value="SS" class="w-5 h-5">
                         <label for="SS"> SS</label><br>
                     </div>
-                    <br>
                     <p class="px-1">Reason :</p>
                     <select id="reasone" class="reasone bg-white rounded-lg" type="text" placeholder="Reason" name="Reason">
                         <option value="-">-</option>
                         <option value="Karigar Absent">Karigar Absent</option>
                         <option value="Karigiar Bimar">Karigiar Bimar</option>
-                    </select>
+                      </select>
                 </div>
                 <br>
                 <div class="looms block">
-                    <p class="px-1 font-bold">Bandh Looms</p>
+                    <p class="px-1 font-bold">Warping</p>
                     <div class="looms1 flex gap-[13px] py-2">
-                        <input type="checkbox" name="1-16" id="1-16" value="1-16"  class="w-5 h-5">
+                        <input type="checkbox" name="1-16" id="1-16" value="1-16">
                         <label for="1-16"> 1-16</label><br>
-                        <input type="checkbox" name="17-32" id="17-32" value="17-32"  class="w-5 h-5">
+                        <input type="checkbox" name="17-32" id="17-32" value="17-32">
                         <label for="17-32"> 17-32</label><br>
-                        <input type="checkbox" name="33-48" id="33-48" value="33-48"  class="w-5 h-5">
+                        <input type="checkbox" name="33-48" id="33-48" value="33-48">
                         <label for="33-48"> 33-48</label><br>
                     </div>
-                    <div class="looms1 flex gap-[12px] py-2">
-                        <input type="checkbox" name="49-64" id="49-64" value="49-64"  class="w-5 h-5">
+                    <div class="looms1 flex gap-[13px] py-2">
+                        <input type="checkbox" name="49-64" id="49-64" value="49-64">
                         <label for="49-64"> 49-64</label><br>
-                        <input type="checkbox" name="65-80" id="65-80" value="65-80"  class="w-5 h-5">
+                        <input type="checkbox" name="65-80" id="65-80" value="65-80">
                         <label for="65-80"> 65-80</label><br>
-                        <input type="checkbox" name="81-96" id="81-96" value="81-96"  class="w-5 h-5">
+                        <input type="checkbox" name="81-96" id="81-96" value="81-96">
                         <label for="81-96"> 81-96</label><br>
                     </div>
-                    <div class="looms1 flex gap-[12px] py-2">
-                        <input type="checkbox" name="97-112" id="97-112" value="97-112"  class="w-5 h-5">
+                    <div class="looms1 flex gap-[13px] py-2">
+                        <input type="checkbox" name="97-112" id="97-112" value="97-112">
                         <label for="97-112"> 97-112</label><br>
-                        <input type="checkbox" name="113-128" id="113-128" value="113-128"  class="w-5 h-5">
+                        <input type="checkbox" name="113-128" id="113-128" value="113-128">
                         <label for="113-128"> 113-128</label><br>
-                        <input type="checkbox" name="129-144" id="129-144" value="129-144"  class="w-5 h-5">
+                        <input type="checkbox" name="129-144" id="129-144" value="129-144">
                         <label for="129-144"> 129-144</label><br>
                     </div>
-                    <div class="looms1 flex gap-[9px] py-2 ">
-                        <input type="checkbox" name="145-160" id="145-160" value="145-160"  class="w-5 h-5">
+                    <div class="looms1 flex gap-[13px] py-2 ">
+                        <input type="checkbox" name="145-160" id="145-160" value="145-160">
                         <label for="145-160"> 145-160</label><br>
-                        <input type="checkbox" name="161-176" id="161-176" value="161-176"  class="w-5 h-5">
+                        <input type="checkbox" name="161-176" id="161-176" value="161-176">
                         <label for="161-176"> 161-176</label><br>
-                        <input type="checkbox" name="177-192" id="177-192" value="177-192"  class="w-5 h-5">
+                        <input type="checkbox" name="177-192" id="177-192" value="177-192">
                         <label for="177-192"> 177-192</label><br>
                     </div>
                     <br>
@@ -144,25 +125,24 @@
                         <option value="Kandi Problem">Kandi Problem</option>
                         <option value="Karigar Absent">Karigar Absent</option>
                         <option value="Karigiar Bimar">Karigiar Bimar</option>
-                    </select>
+                      </select>
                 </div>
                 <br>
                 <p class="px-1 font-bold">Passariya :</p>
-                <input type="number" pattern="[0-9]*" id="passaria" class="py-2 rounded-lg">
+                <input type="number" pattern="[0-9]*" id="reasone1" class="py-2 rounded-lg">
                 <br>
             </div>
-            
+
             <button type="button" id="save" class="w-full bg-black text-white h-10 mt-1 rounded-[12px]"
-            onClick="operate()">Send</button>
+                onClick="operate()">Send</button>
         </div>
-        
+
     </form>
-</div>
-    
-    
-    <script src="./Looms.js">
+
+
+    <script src="./script2.js">
         AOS.init();
-        </script>
+    </script>
 </body>
 
 </html>

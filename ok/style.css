@@ -5,18 +5,7 @@
   overflow-x: hidden;
 }
 
-.arrow {
-  border: solid black;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
-  margin-left: 5px;
-}
 
-.left {
-  transform: rotate(135deg);
-  -webkit-transform: rotate(135deg);
-}
 
 /* .inputsm{
   border-radius: 6px;
