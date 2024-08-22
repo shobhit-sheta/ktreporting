@@ -7,7 +7,7 @@
     <title>KT</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Link CSS -->
-    <!-- <link rel="stylesheet" href="./style1.css"> -->
+    <link rel="stylesheet" href="./looms.css">
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,23 +45,41 @@
     }
 
 
-    body {
-        overflow-x: hidden;
-    }
 </style>
 
-<body class="bg-black flex justify-center items-center h-full p-5 overflow-x-hidden">
+<body class="bg-black  justify-center items-center h-full p-5">
+    <div id="accessDenied" class="accessDenied bg-black" style="font-size: large;"></div>
 
+    <div id="login" style="display: none;">
+        
+        <div id="login1">
+            <div class="flex gap-3">
 
-    <form method="post" action="" name="form"
+                <button type="button" class=" text-white h-10 mt-1 rounded-[12px]  font-bold"> <a href="./index.html"> <i
+                    class="arrow1 left"></i></a> </button>
+                    
+                    <h1 style="color: #f5f5f7; font-size: 28px;" ><b>LOGIN</b>
+                        <br><p style="font-size: 16px;">Looms & Kandi</p>
+                    </h1>
+                </div>
+          <input id="username" type="text" placeholder="Username">
+          <br>
+          <input id="password" type="password" placeholder="Password">
+          <br>
+          <button id="submit" onclick="login()">Submit</button>
+        </div>
+      </div>
+
+    <div id="accessAllowed" style="display: none;">
+        <form method="post" action="" name="form"
         class="bg-backgroundWhite w-full max-h-full mx-auto rounded-[30px] p-4 font-medium">
         <div>
             
             <button type="button" class=" text-black h-10 mt-1 rounded-[12px]  font-bold"> <a href="./index.html"> <i class="arrow left"></i>Back</a> </button>
             <br>
             <br>
-                <img src="./Assets/kalaTex1.png" alt="" class="mx-auto w-[50%]">
-<br>
+            <img src="./Assets/kalaTex1.png" alt="" class="mx-auto w-[50%]">
+            <br>
             <div class="title text-center">Looms & Kandi Machine</div>
             <p class="w-full border-[1px] "></p>
             <br>
@@ -82,7 +100,7 @@
                         <option value="-">-</option>
                         <option value="Karigar Absent">Karigar Absent</option>
                         <option value="Karigiar Bimar">Karigiar Bimar</option>
-                      </select>
+                    </select>
                 </div>
                 <br>
                 <div class="looms block">
@@ -126,24 +144,25 @@
                         <option value="Kandi Problem">Kandi Problem</option>
                         <option value="Karigar Absent">Karigar Absent</option>
                         <option value="Karigiar Bimar">Karigiar Bimar</option>
-                      </select>
+                    </select>
                 </div>
                 <br>
                 <p class="px-1 font-bold">Passariya :</p>
                 <input type="number" pattern="[0-9]*" id="passaria" class="py-2 rounded-lg">
                 <br>
             </div>
-
+            
             <button type="button" id="save" class="w-full bg-black text-white h-10 mt-1 rounded-[12px]"
-                onClick="operate()">Send</button>
+            onClick="operate()">Send</button>
         </div>
-
+        
     </form>
-
-
+</div>
+    
+    
     <script src="./Looms.js">
         AOS.init();
-    </script>
+        </script>
 </body>
 
 </html>

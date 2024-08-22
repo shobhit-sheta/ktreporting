@@ -88,7 +88,6 @@ function sendWhatsAppMessage() {
   var groupName = "Reporting"; // Replace with your WhatsApp group name
   var phone = encodeURIComponent("Reporting");
 
-  var phone = "7202914552";
   var title = constructTitleWaterjetMachine();
   var passaria = document.getElementById("passaria").value;
   var message = encodeURIComponent(
@@ -105,9 +104,12 @@ function sendWhatsAppMessage() {
       passaria +
       "*"
   );
-  var url = "https://wa.me/" + phone + "/?text=" + message;
+  // var groupInviteLink = "https://chat.whatsapp.com/D6vESUtvUkTA2Mto9s8uhK"; // Replace with your actual invite link
+// window.open(groupInviteLink, '_blank');
+var url = "https://wa.me/" + phone + "/?text=" + message;
 
-  window.open(url, "_blank");
+    
+window.open(url, '_blank');
 }
 
 // Function to get checked checkboxes within the .Waterjet block
@@ -188,3 +190,42 @@ function operate() {
 
 
 
+
+document.getElementById("accessDenied").style.width = "100vw";
+document.getElementById("accessDenied").style.height = "100vh";
+
+window.onload = function() {
+  var currentTime = new Date();
+  var currentHour = currentTime.getHours();
+
+  if (currentHour >= 20 || currentHour < 8) { // 9 PM (21:00) to 8 AM (08:00)
+      document.getElementById("accessDenied").style.display = "block";
+      var messageDiv = document.getElementById("accessDenied");
+    messageDiv.innerHTML = "<h1 style='font-size: 28px;'><B>Sorry!</B></h1><p>You cannot access at this time.</p>";
+    document.getElementById("login").style.display = "none";
+  } else {
+      document.getElementById("accessDenied").style.display = "none";
+      document.getElementById("login").style.display = "block";
+      // document.getElementById("accessDenied").style.display = "none";
+      var messageDiv = document.getElementById("accessDenied");
+      messageDiv.innerHTML = "";
+  
+      document.querySelector("body").style.overflow = "hidden";
+  }
+};
+
+
+function login() {
+  let user = document.getElementById("username").value;
+  let psd = document.getElementById("password").value;
+
+  if (
+    (user == "Manish" && psd == "6354957851")) {
+    document.querySelector("body").style.overflow = "auto";
+    document.getElementById("accessAllowed").style.display = "block";
+    document.getElementById("login").style.display = "none";
+  } else {
+    document.getElementById("accessAllowed").style.display = "none";
+    alert("Invalid Username or Password!");
+  }
+}
