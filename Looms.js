@@ -9,7 +9,7 @@ let save = document.querySelector("#save");
 // let passaria = document.getElementById("passaria").value;
 
   function constructTitleLooms() {
-    var title = "ON Looms";
+    var title = "ON Looms Line";
     var selectedOptions = [];
     var uncheckedOptions = [];
 
