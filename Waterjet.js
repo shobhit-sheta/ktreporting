@@ -64,10 +64,7 @@ function constructTitleWaterjetMachine() {
 }
 
 function sendWhatsAppMessage() {
-  var reasone = document.getElementById("reasone").value;
-
-  // var reasone = document.getElementById('reasone').value;
-
+  var reasone = document.getElementById("reasone").value.trim();
   var currentDate = new Date();
 
   var year = currentDate.getFullYear();
@@ -89,28 +86,28 @@ function sendWhatsAppMessage() {
   var phone = encodeURIComponent("Reporting");
 
   var title = constructTitleWaterjetMachine();
-  var passaria = document.getElementById("passaria").value;
-  var message = encodeURIComponent(
-    "Date: " +
-      formattedDate +
-      "\nTime: " +
-      formattedTime +
-      "\n\n" +
-      title +
-      "\nReason :" +
-      reasone +
-      "\n\nPassaria :" +
-      " *" +
-      passaria +
-      "*"
-  );
-  // var groupInviteLink = "https://chat.whatsapp.com/D6vESUtvUkTA2Mto9s8uhK"; // Replace with your actual invite link
-// window.open(groupInviteLink, '_blank');
-var url = "https://wa.me/" + phone + "/?text=" + message;
-
-    
-window.open(url, '_blank');
+  var passaria = document.getElementById("passaria").value.trim();
+  
+  // Construct the message conditionally
+  var messageContent = "Date: " + formattedDate + "\nTime: " + formattedTime + "\n\n" + title;
+  
+  // Include 'Reason' only if 'reasone' is not empty and not equal to "-"
+  if (reasone && reasone !== "-") {
+    messageContent += "\nReason: " + reasone;
+  }
+   
+  if (passaria) {
+    messageContent += "\n\nPassaria: " + "*" + passaria + "*";
 }
+
+  // Encode the message content
+  var message = encodeURIComponent(messageContent);
+
+  var url = "https://wa.me/" + phone + "/?text=" + message;
+
+  window.open(url, '_blank');
+}
+
 
 // Function to get checked checkboxes within the .Waterjet block
 function getCheckedWaterjet() {

@@ -91,7 +91,7 @@ function sendWhatsAppMessage() {
   
   var formattedTime = hours + ":" + (minutes < 10 ? '0' : '') + minutes + " " + ampm;
   
-  var groupName = "Reporting"; // Replace with your WhatsApp group name
+  // var groupName = "Reporting"; // Replace with your WhatsApp group name
   var phone = encodeURIComponent("Reporting");
 
   var title = constructTitleKandiMachine();
