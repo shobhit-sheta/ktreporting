@@ -1,7 +1,7 @@
 // const scriptURL = 'https://script.google.com/macros/s/AKfycbxisfXzsyjAc-3FrJ674ZQy3CJa1Kvq8b6xJViboTrjhLYSj9EBQM7z2ljzLcUSz0h5QQ/exec'
 
 let api =
-  "https://script.google.com/macros/s/AKfycbxVR4pTkpxlS7rnWZv0yobZbRDiBXL9M6y4ZmVnCdjTLu_aP58Y9U1RdaU6YJYp3V8hjw/exec";
+  "https://script.google.com/macros/s/AKfycbypCwSE6_YYo5gJIs6YWM43xDEWJRvMw2L91R0q44yUkPPNoAJTX_5wdFMaDasDiv7m_A/exec";
 let form = document.querySelector("form");
 let save = document.querySelector("#save");
 // let CheckedKandi = getCheckedKandi();
@@ -9,7 +9,7 @@ let save = document.querySelector("#save");
 // let passaria = document.getElementById("passaria").value;
 
   function constructTitleLooms() {
-    var title = "Looms";
+    var title = "ON Looms";
     var selectedOptions = [];
     var uncheckedOptions = [];
 
@@ -32,13 +32,13 @@ let save = document.querySelector("#save");
 
     var uncheckedCount = uncheckedOptions.length;
     if (uncheckedCount > 0) {
-        title += "\nBandh Looms Line : " + "\n*" + uncheckedCount + " (" + uncheckedOptions.join(", ") + ")*" ;
+        title += "\nOFF Looms Line : " + "\n*" + uncheckedCount + " (" + uncheckedOptions.join(", ") + ")*" ;
     }
     return title;
 }
 
 function constructTitleKandiMachine() {
-    var title = "Kandi Machine";
+    var title = "ON Kandi Machine";
     var selectedOptions = [];
     var uncheckedOptions = [];
 
@@ -65,48 +65,66 @@ function constructTitleKandiMachine() {
 
   var uncheckedCount = uncheckedOptions.length;
   if (uncheckedCount > 0) {
-      title += "\nBandh Kandi Machine : " + "\n*" + uncheckedCount + " (" + uncheckedOptions.join(", ") + ")*" ;
+      title += "\nOFF Kandi Machine : " + "\n*" + uncheckedCount + " (" + uncheckedOptions.join(", ") + ")*" ;
   }
 
     return title;
 }
 
 function sendWhatsAppMessage() {
-    var reasone = document.getElementById('reasone').value;
-    var reasone1 = document.getElementById('reasone1').value;
+  var reasone = document.getElementById('reasone').value.trim();
+  var reasone1 = document.getElementById('reasone1').value.trim();
 
-    // var reasone = document.getElementById('reasone').value;
+  var currentDate = new Date();
 
-    
-    var currentDate = new Date();
+  var year = currentDate.getFullYear();
+  var month = currentDate.getMonth() + 1;
+  var day = currentDate.getDate();
+  var formattedDate = day + "/" + month + "/" + year;
 
-    var year = currentDate.getFullYear();
-    var month = currentDate.getMonth() + 1;
-    var day = currentDate.getDate();
-    var formattedDate = day + "/" + month + "/" + year;
+  var hours = currentDate.getHours();
+  var minutes = currentDate.getMinutes();
+  
+  var ampm = hours >= 12 ? 'PM' : 'AM';
+  hours = hours % 12;
+  hours = hours ? hours : 12;
+  
+  var formattedTime = hours + ":" + (minutes < 10 ? '0' : '') + minutes + " " + ampm;
+  
+  var groupName = "Reporting"; // Replace with your WhatsApp group name
+  var phone = encodeURIComponent("Reporting");
 
-    var hours = currentDate.getHours();
-    var minutes = currentDate.getMinutes();
-    
-    var ampm = hours >= 12 ? 'PM' : 'AM';
-    hours = hours % 12;
-    hours = hours ? hours : 12;
-    
-    var formattedTime = hours + ":" + (minutes < 10 ? '0' : '') + minutes + " " + ampm;
-    
-    var groupName = "Reporting"; // Replace with your WhatsApp group name
-    var phone = encodeURIComponent("Reporting");
-
-    var title = constructTitleKandiMachine();
-    var title1 = constructTitleLooms();
-    var passaria = document.getElementById("passaria").value;
-    var message = encodeURIComponent("Date: " + formattedDate + "\nTime: " + formattedTime + "\n\n" + title + "\nReason :" + reasone + "\n\n" + title1 + "\nReason :" + reasone1+ "\n\nPassaria :" + " *"+passaria+"*");
-    var url = "https://wa.me/" + phone + "/?text=" + message;
-
-    
-    window.open(url, '_blank');
-
+  var title = constructTitleKandiMachine();
+  var title1 = constructTitleLooms();
+  var passaria = document.getElementById("passaria").value.trim();
+  
+  // Build the message content conditionally
+  var messageContent = "Date: " + formattedDate + "\nTime: " + formattedTime + "\n\n" + title;
+  
+  if (reasone && reasone !== "-") {
+    messageContent += "\nReason: " + reasone;
 }
+
+messageContent += "\n\n" + title1;
+
+if (reasone1 && reasone1 !== "-") {
+    messageContent += "\nReason: " + reasone1;
+}
+
+  
+  if (passaria) {
+      messageContent += "\n\nPassaria: " + "*" + passaria + "*";
+  }
+  
+  // Encode message
+  var message = encodeURIComponent(messageContent);
+  
+  // Construct URL
+  var url = "https://wa.me/" + phone + "/?text=" + message;
+
+  window.open(url, '_blank');
+}
+
 
 
 // Function to get checked checkboxes within the .kandi block
@@ -247,6 +265,7 @@ window.onload = function() {
       document.querySelector("body").style.overflow = "hidden";
   }
 };
+
 
 
 function login() {
