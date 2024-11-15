@@ -1,7 +1,6 @@
-// const scriptURL = 'https://script.google.com/macros/s/AKfycbxisfXzsyjAc-3FrJ674ZQy3CJa1Kvq8b6xJViboTrjhLYSj9EBQM7z2ljzLcUSz0h5QQ/exec'
 
 let api =
-  "https://script.google.com/macros/s/AKfycbypCwSE6_YYo5gJIs6YWM43xDEWJRvMw2L91R0q44yUkPPNoAJTX_5wdFMaDasDiv7m_A/exec";
+  "https://script.google.com/macros/s/AKfycbxojHcYqLeeF5pYSETs56rsJdfNIcdAplfPOj0zhlObWwDJp4tIpwq5xrpmH1IifUdyHw/exec";
 let form = document.querySelector("form");
 let save = document.querySelector("#save");
 // let CheckedKandi = getCheckedKandi();
@@ -97,9 +96,10 @@ function sendWhatsAppMessage() {
   var title = constructTitleKandiMachine();
   var title1 = constructTitleLooms();
   var passaria = document.getElementById("passaria").value.trim();
+  var palti = document.getElementById("palti").value.trim();
   
   // Build the message content conditionally
-  var messageContent = "Date: " + formattedDate + "\nTime: " + formattedTime + "\n\n" + title;
+  var messageContent = "Date: " + formattedDate + "\nTime: " + formattedTime + "\n\n" + title + "\n\n"+ uncheckedWarperText;
   
   if (reasone && reasone !== "-") {
     messageContent += "\nReason: " + reasone;
@@ -118,7 +118,7 @@ if (reasone1 && reasone1 !== "-") {
   
   // Encode message
   var message = encodeURIComponent(messageContent);
-  
+  var phone = "";
   // Construct URL
   var url = "https://wa.me/" + phone + "/?text=" + message;
 
@@ -175,6 +175,54 @@ function getUncheckedLooms() {
   return unchecked;
 }
 
+// Function to get checked checkboxes within the .looms block
+function getCheckedTfo() {
+  const checked = [];
+  const checkedBoxes = document.querySelectorAll('.tfo input[type="checkbox"]:checked');
+  
+  checkedBoxes.forEach(checkbox => {
+    checked.push(checkbox.value);
+  });
+
+  return checked;
+}
+
+// Function to get unchecked checkboxes within the .looms block
+function getUncheckedTfo() {
+  const unchecked = [];
+  const uncheckedBoxes = document.querySelectorAll('.tfo input[type="checkbox"]:not(:checked)');
+  
+  uncheckedBoxes.forEach(checkbox => {
+    unchecked.push(checkbox.value);
+  });
+
+  return unchecked;
+}
+
+// Function to get checked checkboxes within the .looms block
+function getCheckedWarper() {
+  const checked = [];
+  const checkedBoxes = document.querySelectorAll('.warper input[type="checkbox"]:checked');
+  
+  checkedBoxes.forEach(checkbox => {
+    checked.push(checkbox.value);
+  });
+
+  return checked;
+}
+
+// Function to get unchecked checkboxes within the .looms block
+function getUncheckedWarper() {
+  const unchecked = [];
+  const uncheckedBoxes = document.querySelectorAll('.warper input[type="checkbox"]:not(:checked)');
+  
+  uncheckedBoxes.forEach(checkbox => {
+    unchecked.push(checkbox.value);
+  });
+
+  return unchecked;
+}
+
 function saveData() {
 
   const date = new Date();  // Get today's date and time
@@ -196,9 +244,24 @@ const formattedDate = date.toLocaleString(); // Format the date and time as a st
   const checkedLoomsText = CheckedLooms.join(', ');
   const uncheckedLoomsText = UncheckedLooms.join(', ');
   
+  const CheckedTfo = getCheckedTfo();
+  const UncheckedTfo = getUncheckedTfo();
+  
+  // Convert arrays to comma-separated strings
+  const checkedTfoText = CheckedTfo.join(', ');
+  const uncheckedTfoText = UncheckedTfo.join(', ');
+  
+  const CheckedWarper = getCheckedWarper();
+  const UncheckedWarper = getUncheckedWarper();
+  
+  // Convert arrays to comma-separated strings
+  const checkedWarperText = CheckedWarper.join(', ');
+  const uncheckedWarperText = UncheckedWarper.join(', ');
+  
   const reasone1 = document.getElementById("reasone1").value;
   
   const passaria = document.getElementById("passaria").value;
+  const palti = document.getElementById("palti").value;
   
   // Construct the data object
   let obj = {
@@ -211,6 +274,11 @@ const formattedDate = date.toLocaleString(); // Format the date and time as a st
     bandhLooms: checkedLoomsText,
     reasone1: reasone1,
     passaria: passaria,
+    palti: palti,
+    tfo: uncheckedTfoText,
+    bandhTfo: checkedTfoText,
+    warper: uncheckedWarperText,
+    absentWarper: checkedWarperText,
 
 
   };
@@ -242,43 +310,3 @@ function operate(){
 
 
 
-
-document.getElementById("accessDenied").style.width = "100vw";
-document.getElementById("accessDenied").style.height = "100vh";
-
-window.onload = function() {
-  var currentTime = new Date();
-  var currentHour = currentTime.getHours();
-
-  if (currentHour >= 20 || currentHour < 8) { // 9 PM (21:00) to 8 AM (08:00)
-      document.getElementById("accessDenied").style.display = "block";
-      var messageDiv = document.getElementById("accessDenied");
-    messageDiv.innerHTML = "<h1 style='font-size: 28px;'><B>Sorry!</B></h1><p>You cannot access at this time.</p>";
-    document.getElementById("login").style.display = "none";
-  } else {
-      document.getElementById("accessDenied").style.display = "none";
-      document.getElementById("login").style.display = "block";
-      // document.getElementById("accessDenied").style.display = "none";
-      var messageDiv = document.getElementById("accessDenied");
-      messageDiv.innerHTML = "";
-  
-      document.querySelector("body").style.overflow = "hidden";
-  }
-};
-
-
-
-function login() {
-  let user = document.getElementById("username").value;
-  let psd = document.getElementById("password").value;
-
-  if (
-    (user == "Raju" && psd == "9978260142")) {
-    document.querySelector("body").style.overflow = "auto";
-    document.getElementById("accessAllowed").style.display = "block";
-    document.getElementById("login").style.display = "none";
-  } else {
-    document.getElementById("accessAllowed").style.display = "none";
-    alert("Invalid Username or Password!");
-  }
-}

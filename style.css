@@ -5,26 +5,75 @@
   overflow-x: hidden;
 }
 
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  margin-left: 5px;
+}
+.arrow1 {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  margin-left: 5px;
+}
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
 
 
-/* .inputsm{
-  border-radius: 6px;
-  width: 96px;
-  padding: 4px;
-  height: 40px;
-  font-size: 14px ;
+
+#accessDenied {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  border-radius: 5px;
+  text-align: center;
+  color: white;
 }
-.inputmd{
-  border-radius: 6px;
-  width: 112px;
-  padding: 4px;
-  height: 40px;
-  font-size: 14px ;
+
+#login{
+  width: 100vw;
+  height: 100vh;
 }
-.inputlg{
-  border-radius: 6px;
+
+#login1{
+width: 85%;
+padding: 20px;
+background: #000000;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+  border-radius: 20px;
+}
+
+#username{
+ width:100%;
+ padding: 10px 10px;
+ font-size: 16px;
+ margin-top: 20px;
+ margin-bottom: 10px;
+ border-radius: 8px;
+}
+#password{
   width:100%;
-  padding: 4px;
-  height: 40px;
-  font-size: 14px ;
-} */
+  font-size: 16px;
+  padding: 10px 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+}
+#submit{
+  width:100%;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  padding: 10px 10px;
+  margin: 10px 0;
+  background: #464649;
+  color: #0385FF;
+}

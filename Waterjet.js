@@ -217,7 +217,8 @@ function login() {
   let psd = document.getElementById("password").value;
 
   if (
-    (user == "Manish" && psd == "6354957851")) {
+    (user == "Manish" && psd == "6354957851"))
+     {
     document.querySelector("body").style.overflow = "auto";
     document.getElementById("accessAllowed").style.display = "block";
     document.getElementById("login").style.display = "none";
